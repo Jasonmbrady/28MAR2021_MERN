@@ -1,22 +1,21 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
 const DisplayPokemon = props =>{
     const [pokeDex, setPokeDex] = useState([])
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(20);
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon")
-            .then( res => res.json())
-            .then( res => setPokeDex(res.results))
-            .catch( err => console.log(err))
+    axios.get("https://pokeapi.co/api/v2/pokemon")
+        .then( response => setPokeDex(response.data.results))
+        .catch( error => console.log(error))
     }, []);
 
     const clickHandler = e =>{
         e.preventDefault();
         setPage(page + 20);
-        fetch("https://pokeapi.co/api/v2/pokemon?offset=" + page)
-            .then( res => res.json())
-            .then( res => setPokeDex(res.results))
-            .catch( err => console.log(err))
+        axios.get("https://pokeapi.co/api/v2/pokemon?offset=" + page)
+        .then( response => setPokeDex(response.data.results))
+        .catch( error => console.log(error))
     }
 
     return(

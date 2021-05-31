@@ -1,10 +1,10 @@
 import './App.css';
-import DisplayPokemon from './components/DisplayPokemon';
+import OnePokemon from './components/OnePokemon';
 
 function App() {
   return (
     <div className="App">
-      <DisplayPokemon />
+      <OnePokemon />
     </div>
   );
 }
