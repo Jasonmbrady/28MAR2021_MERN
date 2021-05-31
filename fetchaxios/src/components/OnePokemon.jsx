@@ -3,7 +3,12 @@ import axios from 'axios';
 
 const OnePokemon = props =>{
     const [number, setNumber] = useState(1)
-    const [pokemon, setPokemon] = useState({});
+    const [pokemon, setPokemon] = useState({
+        name: "",
+        sprites: {
+            front_default: ""
+        }
+    });
     
     useEffect(() => {
         axios.get("https://pokeapi.co/api/v2/pokemon/" + number)
