@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const db = "firstMERN"
 
-mongoose.connect("mongodb://localhost/thisdb", {
+mongoose.connect("mongodb://localhost/" + db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -8,3 +9,4 @@ mongoose.connect("mongodb://localhost/thisdb", {
     .catch( err => console.log("oops! something went wrong!", err))
 
 
+require("../models/Person");
