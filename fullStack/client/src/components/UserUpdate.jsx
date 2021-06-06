@@ -1,12 +1,8 @@
 import React from 'react';
 
-
-const UserForm = ({formHandler, name, setName, email, setEmail, password, setPassword}) =>{
-
-
-
-    return(
-        <form onSubmit={formHandler}>
+const UserUpdate = ({updateHandler, id, name, setName, email, setEmail, password, setPassword}) => {
+    return (
+        <form onSubmit={updateHandler} id={id}>
             <div>
                 <label>Name</label>
                 <input type="text" value={name} onChange={e=>setName(e.target.value)}/>
@@ -23,5 +19,4 @@ const UserForm = ({formHandler, name, setName, email, setEmail, password, setPas
         </form>
     )
 }
-
-export default UserForm;
+export default UserUpdate;

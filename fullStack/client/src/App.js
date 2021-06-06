@@ -1,12 +1,12 @@
-import UserForm from "./components/UserForm";
-import Main from "./Main";
+
+import UserParent from "./components/UserParent";
+
 
 
 function App() {
   return (
     <div className="App">
-     <Main />
-     <UserForm />
+      <UserParent />
     </div>
   );
 }

@@ -16,5 +16,25 @@ module.exports = {
         })
         .then(user => res.json(user))
         .catch(err => console.log(err))
+    },
+    allUsers: (req, res) => {
+        User.find()
+            .then(users => res.json(users))
+            .catch(err => console.log(err))
+    },
+    oneUser: (req, res) => {
+        User.findOne({_id: req.params.id})
+            .then( user => res.json(user))
+            .catch(err => console.log(err))
+    },
+    deleteUser: (req, res) => {
+        User.deleteOne({_id: req.params.id})
+            .then( con => res.json(con))
+            .catch( err => console.log(err))
+    },
+    updateUser: (req, res) => {
+        User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+            .then( user => res.json(user))
+            .catch(err => console.log(err))
     }
 }
