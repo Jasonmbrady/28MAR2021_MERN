@@ -1,21 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import CreatePerson from './CreatePerson';
-import {Link, Router} from '@reach/router';
-import UpdatePerson from './UpdatePerson';
+import React, {useEffect} from 'react';
+import {Link} from '@reach/router';
 import axios from 'axios';
 import DeleteButton from './DeleteButton';
 
-const PersonParent = (props) => {
-    const [people, setPeople] = useState([{
-        fName: "",
-        lName: "",
-        age: 999
-    }])
+const PersonParent = ({people, setPeople}) => {
+    
     useEffect(()=>{
         axios.get("http://localhost:8000/api/person")
             .then(res => setPeople(res.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [setPeople])
     const deleteHandler = personId => {
         const tempArr = people.filter( person => person._id !== personId);
         setPeople(tempArr);
@@ -50,18 +44,7 @@ const PersonParent = (props) => {
                 }
                 </tbody>
             </table>
-            <Router>
-                <CreatePerson 
-                    people={people} 
-                    setPeople={setPeople}
-                    path="/create"
-                />
-                <UpdatePerson 
-                    people={people} 
-                    setPeople={setPeople}
-                    path="/update/:id"
-                />
-            </Router>
+                
         </div>
     )
 }

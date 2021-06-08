@@ -1,10 +1,11 @@
-import PersonParent from "./components/PersonParent";
+import FormSelect from "./components/FormSelect";
+
 
 
 function App() {
   return (
     <div className="App">
-      <PersonParent />
+      <FormSelect/>
     </div>
   );
 }

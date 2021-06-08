@@ -12,6 +12,7 @@ const UpdatePerson = ({id, people, setPeople}) => {
 
     useEffect(()=>{
         const thisPerson = people.filter(person => person._id === id)[0];
+        console.log(thisPerson);
         setFName(thisPerson.fName);
         setLName(thisPerson.lName);
         setAge(thisPerson.age);
